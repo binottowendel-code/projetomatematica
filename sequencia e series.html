@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sequências e Séries</title>
+  <style>
+    /* ===== Reset e base ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+      padding-top: 60px;
+    }
+   /* NAVBAR */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  z-index: 100;
+}
+
+/* CADA ITEM DA NAVBAR */
+.nav-item {
+  color: #3a97b8;
+  text-decoration: none;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+/* ÍCONES */
+.nav-item svg {
+  width: 24px;
+  height: 24px;
+  stroke: #3a97b8;
+}
+
+/* EFEITO HOVER NA NAVBAR */
+@media (hover: hover) {
+  .nav-item:hover {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+  }
+}
+
+/* MOBILE EXTRA PEQUENO */
+@media (max-width: 360px) {
+  .container {
+    padding: 15px;
+  }
+  .lista a {
+    padding: 12px 14px;
+  }
+  .nav-item span {
+    font-size: 11px;
+  }
+}
+    /* ===== Header ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.2rem;
+      z-index: 1000;
+    }
+
+    /* ===== Conteúdo ===== */
+    main {
+      padding: 15px;
+    }
+
+    section {
+      margin-bottom: 30px;
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #0077cc;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* ===== Caixa de exemplo ===== */
+    .exemplo {
+      margin-top: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #e8eaf6;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select, button {
+      padding: 10px;
+      margin-top: 5px;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #0077cc;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0077cc;
+    }
+
+    /* ===== Responsividade ===== */
+    @media (min-width: 600px) {
+      main {
+        max-width: 600px;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    Sequências e Séries
+  </header>
+
+  <main>
+    <section>
+      <h2>O que são Sequências e Séries?</h2>
+      <p>
+        <p> Uma <b>sequência</b> Imagine uma lista ordenada de números que segue uma regra específica.  Cada número na lista é chamado de termo.</p>
+
+        Ideia Central: É uma coleção ordenada de elementos (números, neste caso). <br>
+        
+        Analogia: É como uma fila de pessoas. A 1ª pessoa, a 2ª, a 3ª, e assim por diante. A ordem importa! <br>
+        
+        Notação: Geralmente representada por aₙ, onde n é a posição do termo (um número natural: 1, 2, 3...). <br>
+        <br>
+        
+        a₁ é o primeiro termo. <br> 
+        
+        a₂ é o segundo termo. <br> 
+        
+        aₙ é o n-ésimo termo (ou termo geral).  <br> <br>
+
+        <p> Uma <b>série</b> Agora, se pegarmos os termos de uma sequência e somarmos eles, nós temos uma série. </p>
+
+        Ideia Central: É a soma dos termos de uma sequência. <br>
+        
+        Analogia: Usando a fila de pessoas, a série não é a lista de pessoas, mas sim o processo de contar quantas pessoas tem no total à medida que cada uma chega (1ª pessoa = 1, 1ª+2ª = 2, 1ª+2ª+3ª = 3, etc.). <br> <br>
+        
+        Notação: A soma dos primeiros n termos de uma sequência aₙ é chamada de soma parcial e é denotada por Sₙ. <br> <br>
+        
+        S₁ = a₁ (soma do primeiro termo) <br>
+        
+        S₂ = a₁ + a₂ (soma dos dois primeiros termos) <br>
+        
+        Sₙ = a₁ + a₂ + a₃ + ... + aₙ (soma dos n primeiros termos) <br>
+        
+        Uma Série Infinita é a soma de todos os infinitos termos de uma sequência. É representada por:
+        a₁ + a₂ + a₃ + ... = ∑ (n=1 até ∞) aₙ
+      </p>
+    </section>
+
+    <section>
+      <h2>Principais Fórmulas</h2>
+      <ul>
+        <li><b>PA - Termo geral:</b> aₙ = a₁ + (n - 1)·r</li>
+        <li><b>PA - Soma dos n primeiros termos:</b> Sₙ = (a₁ + aₙ)·n / 2</li>
+        <li><b>PG - Termo geral:</b> aₙ = a₁ · q^(n - 1)</li>
+        <li><b>PG - Soma dos n primeiros termos:</b> Sₙ = a₁ · (qⁿ - 1) / (q - 1), q ≠ 1</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Teste na prática</h2>
+      <div class="exemplo">
+        <label for="tipo">Escolha o tipo:</label>
+        <select id="tipo" onchange="mostrarCampos()">
+          <option value="">-- Selecione --</option>
+          <option value="pa">Progressão Aritmética (PA)</option>
+          <option value="pg">Progressão Geométrica (PG)</option>
+        </select>
+
+        <div id="campos"></div>
+        <button onclick="calcular()">Calcular</button>
+        <p id="resultado"></p>
+      </div>
+    </section>
+  </main>
+<nav class="navbar">
+  
+<a href="estudos.html" class="nav-item">
+    <!-- Ícone Livro/Exercícios -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4h16v13H6.5A2.5 2.5 0 0 0 4 19.5V4z"/></svg>
+    <span>Aprender</span>
+  </a>
+  <a href="index.html" class="nav-item">
+    <!-- Ícone Home -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Início</span>
+  </a>
+  <a href="homeexercicios.html" class="nav-item">
+    <!-- Ícone Baú -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="7" width="18" height="10" rx="2" ry="2"/>
+      <path d="M3 7V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"/>
+      <path d="M12 12v3"/>
+      <path d="M10 15h4"/>
+    </svg>
+    <span>Exercícios</span>
+  </a>
+  <script>
+    function mostrarCampos() {
+      const tipo = document.getElementById("tipo").value;
+      const camposDiv = document.getElementById("campos");
+      camposDiv.innerHTML = "";
+
+      if (tipo === "pa") {
+        camposDiv.innerHTML = `
+          <label>a₁ (primeiro termo):</label><input type="number" id="a1" value="1">
+          <label>r (razão):</label><input type="number" id="r" value="1">
+          <label>n (número de termos):</label><input type="number" id="n" value="5">
+        `;
+      } else if (tipo === "pg") {
+        camposDiv.innerHTML = `
+          <label>a₁ (primeiro termo):</label><input type="number" id="a1" value="1">
+          <label>q (razão):</label><input type="number" id="q" value="2">
+          <label>n (número de termos):</label><input type="number" id="n" value="5">
+        `;
+      }
+    }
+
+    function calcular() {
+      const tipo = document.getElementById("tipo").value;
+      let resultado = "";
+
+      if (tipo === "pa") {
+        const a1 = parseFloat(document.getElementById("a1").value);
+        const r = parseFloat(document.getElementById("r").value);
+        const n = parseInt(document.getElementById("n").value);
+
+        const an = a1 + (n - 1) * r;
+        const soma = (a1 + an) * n / 2;
+
+        resultado = `aₙ = ${an} <br> Sₙ = ${soma}`;
+      } else if (tipo === "pg") {
+        const a1 = parseFloat(document.getElementById("a1").value);
+        const q = parseFloat(document.getElementById("q").value);
+        const n = parseInt(document.getElementById("n").value);
+
+        const an = a1 * Math.pow(q, n - 1);
+        let soma = "";
+
+        if (q === 1) {
+          soma = a1 * n;
+        } else {
+          soma = a1 * (Math.pow(q, n) - 1) / (q - 1);
+        }
+
+        resultado = `aₙ = ${an} <br> Sₙ = ${soma}`;
+      } else {
+        resultado = "Escolha uma opção para calcular.";
+      }
+
+      document.getElementById("resultado").innerHTML = resultado;
+    }
+  </script>
+
+</body>
+</html>

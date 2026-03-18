@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios de Geometria Plana</title>
+    <link rel="stylesheet" href="css/geometriaplanaex.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+   
+
+    <h1>Geometria Plana</h1>
+    
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="progress-text" id="progressText">1/5</div>
+    </div>
+    
+    <!-- Exercício 1 -->
+    <div class="exercise-container" id="exercise1">
+        <h2>Exercício 1</h2>
+        <p>A área quadrada de um sítio deve ser dividida em quatro partes iguais, também quadradas, e, em uma delas, deverá ser mantida uma reserva de mata nativa (área hachurada), conforme mostra a figura a seguir.</p>
+         <img src="imagens/gp1.png" alt="Ilustração da questão 5" class="exercise-image">
+        <p>Sabendo-se que B é o ponto médio do segmento AE e C é o ponto médio do segmento EF, a área hachurada, em m2, mede</p>
+        
+        <div class="options">
+            <button class="option-btn" data-correct="false">A) 625,0.</button>
+            <button class="option-btn" data-correct="false">B) 925,5.</button>
+            <button class="option-btn" data-correct="true">C) 1562,5.</button>
+            <button class="option-btn" data-correct="false">D) 2500,0.</button>
+        </div>
+        
+        <div class="feedback" id="feedback1"></div>
+        <button class="next-btn" id="next1">Próximo Exercício</button>
+        <button class="retry-btn" id="retry1">Tentar novamente</button>
+    </div>
+    
+    <!-- Exercício 2 (inicialmente escondido) -->
+    <div class="exercise-container hidden" id="exercise2">
+        <h2>Exercício 2</h2>
+        <p>Um quadrado de lado x e um triângulo equilátero de lado y possuem áreas de mesma medida. Assim, pode-se afirmar que a razão x/y é igual a:</p>
+        
+        <div class="options">
+            <button class="option-btn" data-correct="false">A) √6/4</button>
+            <button class="option-btn" data-correct="false">B) 3/2</button>
+            <button class="option-btn" data-correct="true">C) √3/4</button>
+            <button class="option-btn" data-correct="false">D) 4√3/2</button>
+        </div>
+        
+        <div class="feedback" id="feedback1"></div>
+<button class="next-btn" id="next2">Próximo Exercício</button>
+<button class="retry-btn" id="retry2">Tentar novamente</button>
+    </div>
+    
+    <!-- Exercício 3 (inicialmente escondido) -->
+    <div class="exercise-container hidden" id="exercise3">
+        <h2>Exercício 3</h2>
+        <p>Uma praça pública em forma de circunferência tem raio de 18 metros. Diante do exposto, assinale a alternativa que apresenta sua área.</p>
+        <div class="options">
+            <button class="option-btn" data-correct="true">A) 1.017,36 m²</button>
+            <button class="option-btn" data-correct="false">B) 1.254,98 m²</button>
+            <button class="option-btn" data-correct="true">C) 1.589,77 m²</button>
+            <button class="option-btn" data-correct="false">D) 1.710,34 m²</button>
+        </div>
+        
+        <div class="feedback" id="feedback1"></div>
+<button class="next-btn" id="next3">Próximo Exercício</button>
+<button class="retry-btn" id="retry3">Tentar novamente</button>
+    </div>
+    
+    <!-- Exercício 4 (inicialmente escondido) -->
+    <div class="exercise-container hidden" id="exercise4">
+        <h2>Exercício 4</h2>
+        <p>Analise a figura a seguir:</p>
+         <img src="imagens/gp4.png" alt="Ilustração da questão 5" class="exercise-image">
+        <p>Sabendo que EP é o raio da semicircunferência de centro em E, como mostra a figura acima, determine o valor da área mais escura e assinale a opção correta. Dado: número π=3</p>
+        
+        <div class="options">
+            <button class="option-btn" data-correct="false">A) 10 cm²</button>
+            <button class="option-btn" data-correct="true">B) 12 cm²</button>
+            <button class="option-btn" data-correct="false">C) 18 cm²</button>
+            <button class="option-btn" data-correct="false">D) 16 cm²</button>
+        </div>
+        
+        <div class="feedback" id="feedback4"></div>
+        <button class="retry-btn" id="retry4">Tentar novamente</button>
+        <button class="next-btn" id="next4">Próximo Exercício</button>
+    </div>
+    
+    <!-- Exercício 5 (inicialmente escondido) -->
+    <div class="exercise-container hidden" id="exercise5">
+        <h2>Exercício 5</h2>
+         <img src="imagens/gp5.png" alt="Ilustração da questão 5" class="exercise-image">
+        <p>Para reformar o telhado de seu armazém, Carlos decidiu comprar telhas colonial. Utilizando este tipo de cobertura são necessárias 20 peças para cada metro quadrado de telhado.</p>
+        
+        <div class="options">
+            <button class="option-btn" data-correct="false">A) 12000 telhas</button>
+            <button class="option-btn" data-correct="true">B) 16000 telhas</button>
+            <button class="option-btn" data-correct="false">C) 18000 telhas</button>
+            <button class="option-btn" data-correct="false">D) 9600 telhas</button>
+        </div>
+        
+        <div class="feedback" id="feedback5"></div>
+        <button class="retry-btn" id="retry5">Tentar novamente</button>
+        <a href="estudos.html"><button class="next-btn" id="next5" style="display: none;">Concluir</button></a>
+
+    </div>
+ 
+    <!-- Navbar fixa -->
+<nav class="navbar">
+ <a href="homeexercicios.html" class="nav-item">
+    <!-- Ícone Livro/Exercícios -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4h16v13H6.5A2.5 2.5 0 0 0 4 19.5V4z"/></svg>
+    <span>Aprender</span>
+  </a>
+  <a href="index.html" class="nav-item">
+    <!-- Ícone Home -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Início</span>
+  </a>
+  <a href="homeexercicios.html" class="nav-item">
+    <!-- Ícone Baú -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="7" width="18" height="10" rx="2" ry="2"/>
+      <path d="M3 7V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"/>
+      <path d="M12 12v3"/>
+      <path d="M10 15h4"/>
+    </svg>
+    <span>Exercício</span>
+  </a>
+</nav>
+   <script src="js/geometriaplanaex.js"></script>
+</body>
+</html>

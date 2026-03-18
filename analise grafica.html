@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Análise Gráfica Fácil</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* ===== Reset e base ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+       /* NAVBAR */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-around;
+  padding: 8px 0;
+  z-index: 100;
+}
+
+/* CADA ITEM DA NAVBAR */
+.nav-item {
+  color: #3a97b8;
+  text-decoration: none;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+/* ÍCONES */
+.nav-item svg {
+  width: 24px;
+  height: 24px;
+  stroke: #3a97b8;
+}
+
+/* EFEITO HOVER NA NAVBAR */
+@media (hover: hover) {
+  .nav-item:hover {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+  }
+}
+
+/* MOBILE EXTRA PEQUENO */
+@media (max-width: 360px) {
+  .container {
+    padding: 15px;
+  }
+  .lista a {
+    padding: 12px 14px;
+  }
+  .nav-item span {
+    font-size: 11px;
+  }
+}
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f9f9f9;
+      color: #333;
+      padding-top: 60px;
+    }
+
+    /* ===== Header ===== */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #0077cc;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 1.2rem;
+      z-index: 1000;
+    }
+
+    /* ===== Conteúdo ===== */
+    main {
+      padding: 15px;
+    }
+
+    section {
+      margin-bottom: 30px;
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      color: #0077cc;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    p {
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* ===== Caixa de exemplo ===== */
+    .exemplo {
+      margin-top: 15px;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      background: #ede7f6;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select, button {
+      padding: 10px;
+      margin-top: 5px;
+      width: 100%;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    button {
+      background: #0077cc;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #0077cc;
+    }
+
+    canvas {
+      margin-top: 15px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ===== Responsividade ===== */
+    @media (min-width: 600px) {
+      main {
+        max-width: 600px;
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+     Análise Gráfica 
+  </header>
+
+  <main>
+    <section>
+      <h2>O que é Análise Gráfica?</h2>
+      <p>
+        A análise gráfica é o estudo das funções matemáticas por meio de seus gráficos no
+        plano cartesiano. Ela ajuda a visualizar o comportamento das funções e entender
+        suas propriedades.
+      </p>
+    </section>
+
+    <section>
+      <h2>Principais Funções</h2>
+      <ul>
+        <li><b>Função do 1º grau:</b> f(x) = ax + b → gráfico é uma reta.</li>
+        <li><b>Função do 2º grau:</b> f(x) = ax² + bx + c → gráfico é uma parábola.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Teste na prática</h2>
+      <div class="exemplo">
+        <label for="tipo">Escolha a função:</label>
+        <select id="tipo" onchange="mostrarCampos()">
+          <option value="">-- Selecione --</option>
+          <option value="linear">Função do 1º grau (ax + b)</option>
+          <option value="quadratica">Função do 2º grau (ax² + bx + c)</option>
+        </select>
+
+        <div id="campos"></div>
+        <button onclick="plotarGrafico()">Gerar Gráfico</button>
+        <canvas id="grafico"></canvas>
+      </div>
+    </section>
+  </main>
+<nav class="navbar">
+  
+<a href="estudos.html" class="nav-item">
+    <!-- Ícone Livro/Exercícios -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4h16v13H6.5A2.5 2.5 0 0 0 4 19.5V4z"/></svg>
+    <span>Aprender</span>
+  </a>
+  <a href="index.html" class="nav-item">
+    <!-- Ícone Home -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    <span>Início</span>
+  </a>
+  <a href="homeexercicios.html" class="nav-item">
+    <!-- Ícone Baú -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="7" width="18" height="10" rx="2" ry="2"/>
+      <path d="M3 7V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2"/>
+      <path d="M12 12v3"/>
+      <path d="M10 15h4"/>
+    </svg>
+    <span>Exercícios</span>
+  </a>
+  <script>
+    let chart;
+
+    function mostrarCampos() {
+      const tipo = document.getElementById("tipo").value;
+      const camposDiv = document.getElementById("campos");
+      camposDiv.innerHTML = "";
+
+      if (tipo === "linear") {
+        camposDiv.innerHTML = `
+          <label>a (coeficiente angular):</label><input type="number" id="a" value="1">
+          <label>b (coeficiente linear):</label><input type="number" id="b" value="0">
+        `;
+      } else if (tipo === "quadratica") {
+        camposDiv.innerHTML = `
+          <label>a:</label><input type="number" id="a" value="1">
+          <label>b:</label><input type="number" id="b" value="0">
+          <label>c:</label><input type="number" id="c" value="0">
+        `;
+      }
+    }
+
+    function plotarGrafico() {
+      const tipo = document.getElementById("tipo").value;
+      if (!tipo) {
+        alert("Escolha uma função para continuar!");
+        return;
+      }
+
+      let valoresX = [];
+      let valoresY = [];
+
+      // Gerar pontos para o gráfico
+      for (let x = -10; x <= 10; x += 1) {
+        valoresX.push(x);
+
+        if (tipo === "linear") {
+          const a = parseFloat(document.getElementById("a").value);
+          const b = parseFloat(document.getElementById("b").value);
+          valoresY.push(a * x + b);
+        } else if (tipo === "quadratica") {
+          const a = parseFloat(document.getElementById("a").value);
+          const b = parseFloat(document.getElementById("b").value);
+          const c = parseFloat(document.getElementById("c").value);
+          valoresY.push(a * x * x + b * x + c);
+        }
+      }
+
+      // Destruir gráfico antigo se existir
+      if (chart) {
+        chart.destroy();
+      }
+
+      // Criar novo gráfico
+      const ctx = document.getElementById("grafico").getContext("2d");
+      chart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: valoresX,
+          datasets: [{
+            label: "f(x)",
+            data: valoresY,
+            borderColor: "#673ab7",
+            backgroundColor: "rgba(103,58,183,0.2)",
+            borderWidth: 2,
+            tension: 0.2
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { title: { display: true, text: "x" } },
+            y: { title: { display: true, text: "f(x)" } }
+          }
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
